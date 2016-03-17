@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Speed Light</string>
+    <string name="no_camera_validation">Your device does not have Flash :(</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="dialog_error">Error</string>
+    <string name="dialog_ok">OK</string>
+    <string name="dialog_yes">Yes</string>
+    <string name="dialog_no">No</string>
+    <string name="exit_speedlight">Quit</string>
+    <string name="exit_speedlight_message">Quit Speed Light?</string>
+</resources>
