@@ -8,4 +8,5 @@
     <string name="dialog_no">No</string>
     <string name="exit_speedlight">Quit</string>
     <string name="exit_speedlight_message">Quit Speed Light?</string>
+    <string name="privacy_text">See Privacy</string>
 </resources>

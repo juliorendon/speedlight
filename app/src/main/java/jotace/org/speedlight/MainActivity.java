@@ -1,11 +1,13 @@
 package jotace.org.speedlight;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.Icon;
 import android.hardware.Camera;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -13,7 +15,10 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -24,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private Camera.Parameters parameters;
     private ImageButton flashlightButton;
     boolean isFlashLightOn = false;
+    private static final String PRIVACY_URL = "http://gordiancode.com.es/language/en/speedlight-privacy/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -131,6 +137,32 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        switch (id) {
+            case R.id.privacy_text:
+                goToPrivacy();
+                break;
+
+            default:
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
     protected void onDestroy() {
         if(camera != null){
             camera.stopPreview();
@@ -138,5 +170,13 @@ public class MainActivity extends AppCompatActivity {
             camera = null;
         }
         super.onDestroy();
+    }
+
+    private void goToPrivacy() {
+        Uri privacyURL = Uri.parse(PRIVACY_URL);
+        Intent intent = new Intent(Intent.ACTION_VIEW, privacyURL);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
     }
 } // END

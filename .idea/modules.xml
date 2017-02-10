@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/SpeedLight.iml" filepath="$PROJECT_DIR$/SpeedLight.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/speedlight.iml" filepath="$PROJECT_DIR$/speedlight.iml" />
     </modules>
   </component>
 </project>
